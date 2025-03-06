@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestão de Territórios</title>
+    <link rel="stylesheet" href="PROTOTIPO_estilo.css">
+    <!-- Incluindo a biblioteca SheetJS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.0/xlsx.full.min.js"></script>
+    <script type="text/javascript" src="PROTOTIPO.js">
+    </script>
+</head>
+<body>
+    <div class="container" id="territorios">
+        <h1>Olá, [NOME DO GESTOR]</h1>
+        <h4>228 REGIONAL BAURU-SP</h4>
+        <h3>Territórios</h3>
+        <div class="territorio" onclick="selecionarTerritorio('9036 SC_BRUSQUE2_VAR_ATC')">9036 SC_BRUSQUE2_VAR_ATC <span>&gt;</span></div>
+        <div class="territorio" onclick="selecionarTerritorio('9022 SP_RIBEIRAO_PRETO')">9022 SP_RIBEIRAO_PRETO <span>&gt;</span></div>
+        <div class="territorio" onclick="selecionarTerritorio('9345 RJ_NITEROI_CENTRO')">9345 RJ_NITEROI_CENTRO <span>&gt;</span></div>
+        <div class="territorio" onclick="selecionarTerritorio('9124 MG_BELO_HORIZONTE_OESTE')">9124 MG_BELO_HORIZONTE_OESTE <span>&gt;</span></div>
+        <div class="territorio" onclick="selecionarTerritorio('9078 RS_PORTO_ALEGRE_NORTE')">9078 RS_PORTO_ALEGRE_NORTE <span>&gt;</span></div>
+        <div class="territorio" onclick="selecionarTerritorio('9156 PR_CURITIBA_CENTRO')">9156 PR_CURITIBA_CENTRO <span>&gt;</span></div>
+        <div class="territorio" onclick="selecionarTerritorio('9267 PE_RECIFE_ZONA_SUL')">9267 PE_RECIFE_ZONA_SUL <span>&gt;</span></div>
+        <div class="territorio" onclick="selecionarTerritorio('9183 CE_FORTALEZA_ALDEOTA')">9183 CE_FORTALEZA_ALDEOTA <span>&gt;</span></div>
+        <div class="territorio" onclick="selecionarTerritorio('9354 BA_SALVADOR_BARRA')">9354 BA_SALVADOR_BARRA <span>&gt;</span></div>
+        <div class="territorio" onclick="selecionarTerritorio('9432 AM_MANAUS_CENTRO')">9432 AM_MANAUS_CENTRO <span>&gt;</span></div>
+    </div>
+
+    <div class="container clientes-container" id="clientes">
+        <h3 id="territorio-selecionado">Território selecionado</h3>
+        <button class="botao botao-voltar" onclick="voltarMenu()">Voltar ao menu de territórios</button>
+        <input type="text" class="search-bar" placeholder="Pesquisar cliente">
+        <button class="botao">Inserir clientes em lote 📤</button>
+        <h3>Clientes</h3>
+        <div id="lista-clientes"></div>
+        <button class="botao" onclick="mostrarMovimentacao()">Prosseguir para movimentação</button>
+    </div>
+
+    <div class="container movimentacao-container" id="movimentacao">
+        <h3>Escolha o tipo de movimentação</h3>
+        <button class="botao" onclick="selecionarMovimentacao('multiatendimento')">Multiatendimento</button>
+        <button class="botao" onclick="selecionarMovimentacao('transferencia')">Transferência</button>
+        <button class="botao" onclick="selecionarMovimentacao('retirada')">Retirada</button>
+        <button class="botao botao-voltar" onclick="voltarClientes()">Voltar à seleção de clientes</button>
+    </div>
+
+    <div class="container territorio-proposto-container" id="territorio-proposto">
+        <h3>Selecione o território proposto</h3>
+        <form id="territorio-form">
+            <label>
+                <input type="radio" name="territorio" value="9036 SC_BRUSQUE2_VAR_ATC" onclick="selecionarTerritorioProposto('9036 SC_BRUSQUE2_VAR_ATC')"> 9036 SC_BRUSQUE2_VAR_ATC
+            </label><br>
+            <label>
+                <input type="radio" name="territorio" value="9022 SP_RIBEIRAO_PRETO" onclick="selecionarTerritorioProposto('9022 SP_RIBEIRAO_PRETO')"> 9022 SP_RIBEIRAO_PRETO
+            </label><br>
+            <label>
+                <input type="radio" name="territorio" value="9345 RJ_NITEROI_CENTRO" onclick="selecionarTerritorioProposto('9345 RJ_NITEROI_CENTRO')"> 9345 RJ_NITEROI_CENTRO
+            </label><br>
+            <label>
+                <input type="radio" name="territorio" value="9124 MG_BELO_HORIZONTE_OESTE" onclick="selecionarTerritorioProposto('9124 MG_BELO_HORIZONTE_OESTE')"> 9124 MG_BELO_HORIZONTE_OESTE
+            </label><br>
+            <label>
+                <input type="radio" name="territorio" value="9078 RS_PORTO_ALEGRE_NORTE" onclick="selecionarTerritorioProposto('9078 RS_PORTO_ALEGRE_NORTE')"> 9078 RS_PORTO_ALEGRE_NORTE
+            </label><br>
+            <label>
+                <input type="radio" name="territorio" value="9156 PR_CURITIBA_CENTRO" onclick="selecionarTerritorioProposto('9156 PR_CURITIBA_CENTRO')"> 9156 PR_CURITIBA_CENTRO
+            </label><br>
+        </form>
+        
+        <button class="botao botao-voltar" onclick="window.location.reload()">Voltar ao menu de territórios</button>
+
+        <button class="botao" id="exportar-excel" onclick="exportarExcel()" style="display: none;">Exportar em Excel</button>
+    </div>
+
+</body>
+</html>
