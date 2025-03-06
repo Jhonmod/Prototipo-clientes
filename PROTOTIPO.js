@@ -1,7 +1,7 @@
 function gerarClientes() {
     return Array.from({ length: 20 }, () => {
         const codigo = Math.floor(Math.random() * 9000000) + 1000000;
-        return `${codigo} - J BONFIM LINS`;
+        return `${codigo}`;
     });
 }
 
