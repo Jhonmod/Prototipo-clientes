@@ -1,0 +1,62 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f8ff;
+    margin: 0;
+    padding: 20px;
+    color: #004080;
+}
+.container {
+    max-width: 600px;
+    margin: auto;
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+h1, h3, h4 {
+    text-align: center;
+}
+.territorio {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+    cursor: pointer;
+}
+.territorio:hover {
+    background-color: #cce5ff;
+}
+.clientes-container, .movimentacao-container, .territorio-proposto-container {
+    display: none;
+}
+.search-bar {
+    width: 100%;
+    padding: 8px;
+    margin: 10px 0;
+    border: 1px solid #004080;
+    border-radius: 5px;
+}
+.cliente-container {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+.cliente input {
+    margin-right: 10px;
+}
+.botao {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    text-align: center;
+    background-color: #004080;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    margin-top: 10px;
+    cursor: pointer;
+}
+.botao-voltar {
+    background-color: #808080;
+}
